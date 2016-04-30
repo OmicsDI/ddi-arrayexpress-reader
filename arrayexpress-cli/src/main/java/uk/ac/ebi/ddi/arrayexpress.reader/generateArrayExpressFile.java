@@ -109,9 +109,11 @@ public class generateArrayExpressFile {
 
             experiments.getExperiment().stream().forEach( ex -> {
 
-                if(ex.getUser() != null && ex.getUser() == BigInteger.valueOf(1)){
+                if(ex.getUser() != null && ex.getUser().contains(BigInteger.valueOf(1))){
                     Entry entry = new Entry();
                     entry.setId(ex.getAccession());
+                    entry.setName(ex.getName());
+                    entry.setDescription(ex.getDescription());
                     entries.addEntry(entry);
 
                 }else{
