@@ -4,13 +4,18 @@ import org.apache.commons.cli.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.Bibliography;
 import uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.Experiments;
+import uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.Provider;
+import uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.Sampleattribute;
 import uk.ac.ebi.ddi.arrayexpress.reader.model.protocols.Protocol;
 import uk.ac.ebi.ddi.arrayexpress.reader.model.protocols.Protocols;
+import uk.ac.ebi.ddi.arrayexpress.reader.utils.Constants;
 import uk.ac.ebi.ddi.xml.validator.parser.marshaller.OmicsDataMarshaller;
-import uk.ac.ebi.ddi.xml.validator.parser.model.Database;
-import uk.ac.ebi.ddi.xml.validator.parser.model.Entries;
-import uk.ac.ebi.ddi.xml.validator.parser.model.Entry;
+import uk.ac.ebi.ddi.xml.validator.parser.model.*;
+import uk.ac.ebi.ddi.xml.validator.parser.model.Date;
+import uk.ac.ebi.ddi.xml.validator.utils.*;
+import uk.ac.ebi.ddi.xml.validator.utils.Field;
 
 import java.io.File;
 
@@ -111,9 +116,67 @@ public class generateArrayExpressFile {
 
                 if(ex.getUser() != null && ex.getUser().contains(BigInteger.valueOf(1))){
                     Entry entry = new Entry();
+
                     entry.setId(ex.getAccession());
                     entry.setName(ex.getName());
                     entry.setDescription(ex.getDescription());
+
+                    //Add Dates
+                    if(ex.getReleasedate() != null && !ex.getReleasedate().toString().isEmpty())
+                        entry.addDate(Field.PUBLICATION.getName(),ex.getReleasedate().toString());
+                    if(ex.getLastupdatedate() != null && !ex.getLastupdatedate().isEmpty())
+                        entry.addDate(Field.PUBLICATION_UPDATED.getName(),ex.getLastupdatedate());
+                    if(ex.getSubmissiondate() != null && !ex.getSubmissiondate().isEmpty())
+                        entry.addDate(Field.SUBMISSION_DATE.getName(),ex.getSubmissiondate());
+
+                    //Add Protocol information as additional fields
+
+                    for(uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.Protocol protocolId: ex.getProtocol()){
+                        Protocol protocol = protocolMap.get(protocolId.getAccession());
+                        if(protocol != null){
+                            System.out.println(protocol.getName());
+                            entry.addAdditionalField(protocol.getType(), protocol.getText());
+                            if(protocol.getSoftware() != null && !protocol.getSoftware().isEmpty()){
+                                entry.addAdditionalField(Field.SOFTWARE_INFO.getName(), protocol.getSoftware());
+                            }
+                            if(protocol.getHardware() != null && !protocol.getHardware().isEmpty()){
+                                entry.addAdditionalField(Field.INSTRUMENT.getName(), protocol.getHardware());
+                            }
+                        }
+                    }
+
+                    entry.addAdditionalField(Field.LINK.getName(), Constants.ARRAYEXPRESS_URL + entry.getId());
+
+                    for(String type: ex.getExperimenttype()){
+                        if(type != null && !type.isEmpty())
+                            entry.addAdditionalField(Field.OMICS.getName(), Constants.ArrayExpressType.getByType(type).getOmicsType());
+                        entry.addAdditionalField(Field.SUBMITTER_KEYWORDS.getName(), type);
+                    }
+
+                    if(ex.getProvider() != null && !ex.getProvider().isEmpty()){
+                        for(Provider provider: ex.getProvider()){
+                            if(provider != null && provider.getContact() != null && !provider.getContact().isEmpty()){
+                                entry.addAdditionalField(Field.SUBMITTER.getName(), provider.getContact());
+                                if(provider.getEmail() != null && !provider.getEmail().isEmpty()){
+                                    entry.addAdditionalField(Field.SUBMITTER_EMAIL.getName(), provider.getEmail());
+                                }
+                            }
+                        }
+                    }
+                    if(ex.getBibliography() != null && !ex.getBibliography().isEmpty()){
+                        for(Bibliography biblio: ex.getBibliography()){
+                            if(biblio != null && biblio.getAccession() != null){
+                                entry.addCrossReferenceValue(Field.PUBMED.getName(), biblio.getAccession());
+                            }
+                        }
+                    }
+                    for(Sampleattribute sampleattribute: ex.getSampleattribute()){
+                        if(sampleattribute != null && sampleattribute.getCategory() != null){
+                            if(sampleattribute.getCategory().equalsIgnoreCase(Constants.ORGANISM_TAG))
+                                entry.addAdditionalField(Field.SPECIE_FIELD.getName(), sampleattribute.getValue());
+                        }
+                    }
+
                     entries.addEntry(entry);
 
                 }else{
