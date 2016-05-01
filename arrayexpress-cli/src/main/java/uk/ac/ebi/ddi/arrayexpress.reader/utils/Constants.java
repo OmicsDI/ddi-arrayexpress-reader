@@ -13,6 +13,8 @@ public class Constants {
 
     public static String ORGANISM_TAG     = "Organism";
 
+    public static String[] CELL_TYPE        = new String[]{"cell type", "organ/cell type"};
+
     public enum ArrayExpressType{
         DNA_ASSAY(new String[]{"DNA assay", "DNA-seq", "Amplicon sequencing", "ChIP-seq", "methylation profiling by high throughput sequencing"}, "Genomics"),
         METABOLOMIC_PROFILING(new String[]{"Metabolomic profiling"}, "Metabolomics"),

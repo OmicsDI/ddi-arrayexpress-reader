@@ -4,12 +4,10 @@ import org.apache.commons.cli.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.Bibliography;
-import uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.Experiments;
-import uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.Provider;
-import uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.Sampleattribute;
+import uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.*;
 import uk.ac.ebi.ddi.arrayexpress.reader.model.protocols.Protocol;
 import uk.ac.ebi.ddi.arrayexpress.reader.model.protocols.Protocols;
+import uk.ac.ebi.ddi.arrayexpress.reader.utils.ArrayExpressUtils;
 import uk.ac.ebi.ddi.arrayexpress.reader.utils.Constants;
 import uk.ac.ebi.ddi.xml.validator.parser.marshaller.OmicsDataMarshaller;
 import uk.ac.ebi.ddi.xml.validator.parser.model.*;
@@ -171,6 +169,16 @@ public class generateArrayExpressFile {
                             dataProtocolStr = dataProtocolStr + " " + Constants.Protocols.getByType(dataProtcolValue.getType()).getName() + " - " + dataProtcolValue.getText() + "\n";
                         dataProtocolStr = dataProtocolStr.trim();
                         entry.addAdditionalField(Field.DATA.getName(), dataProtocolStr);
+                    }
+
+                    if(ex.getExperimentalfactor() != null){
+                        for(Experimentalfactor factor: ex.getExperimentalfactor()){
+                            if(factor != null && factor.getName() != null && ArrayExpressUtils.cotainsValue(Constants.CELL_TYPE, factor.getName())){
+                                String[] values = ArrayExpressUtils.refineValues(factor.getValue());
+                                for(String value: values)
+                                         entry.addAdditionalField(Field.CELL_TYPE_FIELD.getName(), value);
+                            }
+                        }
                     }
 
                     entry.addAdditionalField(Field.LINK.getName(), Constants.ARRAYEXPRESS_URL + entry.getId());
