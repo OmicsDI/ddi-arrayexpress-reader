@@ -146,7 +146,7 @@ public class generateArrayExpressFile {
 
                             Constants.Protocols protocolConstant = Constants.Protocols.getByType(protocol.getType());
 
-                            if(protocolConstant != null)
+                            if(protocolConstant != null && protocol.getText() != null && !protocol.getText().isEmpty())
                                 if(protocolConstant.getField() == Field.SAMPLE)
                                     sampleProtocol.put(protocolConstant.getLevel(), protocol);
                                 else if(protocolConstant.getField() == Field.DATA)
@@ -177,6 +177,21 @@ public class generateArrayExpressFile {
                                 String[] values = ArrayExpressUtils.refineValues(factor.getValue());
                                 for(String value: values)
                                          entry.addAdditionalField(Field.CELL_TYPE_FIELD.getName(), value);
+                            }
+                            if(factor != null && factor.getName() != null && ArrayExpressUtils.cotainsValue(Constants.TISSUE, factor.getName())){
+                                String[] values = ArrayExpressUtils.refineValues(factor.getValue());
+                                for(String value: values)
+                                    entry.addAdditionalField(Field.TISSUE_FIELD.getName(), value);
+                            }
+                        }
+                    }
+
+                    if(ex.getSampleattribute() != null){
+                        for(Sampleattribute sample: ex.getSampleattribute()){
+                            if(sample != null && sample.getValue() != null && ArrayExpressUtils.cotainsValue(Constants.DISEASE, sample.getCategory())){
+                                String[] values = ArrayExpressUtils.refineValues(sample.getValue());
+                                for(String value: values)
+                                    entry.addAdditionalField(Field.DISEASE_FIELD.getName(), value);
                             }
                         }
                     }

@@ -21,14 +21,13 @@ public class ArrayExpressUtils {
     public static String[] refineValues(String value) {
         String[] values = value.split(";");
         List<String> resultValues = new ArrayList<String>();
-        for(String keyValue :values)
+        for(String keyValue :values){
             if(!keyValue.toUpperCase().contains("AVAILABLE") && !keyValue.toUpperCase().contains("APPLICABLE")
                     && !keyValue.toUpperCase().contains("NOT SPECIFIED")){
                 keyValue = keyValue.replace("_", " ");
                 resultValues.add(keyValue);
             }
-
-
+        }
         String[] arrValue = new String[resultValues.size()];
         for(int i = 0; i < resultValues.size(); i++)
             arrValue[i] = resultValues.get(i);

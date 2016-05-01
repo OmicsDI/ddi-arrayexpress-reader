@@ -13,7 +13,11 @@ public class Constants {
 
     public static String ORGANISM_TAG     = "Organism";
 
-    public static String[] CELL_TYPE        = new String[]{"cell type", "organ/cell type"};
+    public static String[] CELL_TYPE      = new String[]{"cell type", "organ/cell type"};
+
+    public static String[] DISEASE        = new String[]{"DiseaseState"};
+
+    public static String[] TISSUE         = new String[]{"OrganismPart"};
 
     public enum ArrayExpressType{
         DNA_ASSAY(new String[]{"DNA assay", "DNA-seq", "Amplicon sequencing", "ChIP-seq", "methylation profiling by high throughput sequencing"}, "Genomics"),
