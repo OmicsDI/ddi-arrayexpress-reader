@@ -62,7 +62,7 @@ public class Constants {
         IMAGE_ADQUISITION(new String[]{"image_aquisition", "image_acquisition"}, Field.DATA, "Image Adquisition", 5),
         SAMPLE_PROCESSING(new String[]{"specified_biomaterial_action"}, Field.SAMPLE, "Sample Processing", 1),
         LIBRARY_CONSTRUCTION(new String[]{"nucleic acid library construction protocol"}, Field.SAMPLE, "Library Construction", 3);
-        
+
         final String[] types;
         final Field field;
         final String name;
@@ -85,6 +85,19 @@ public class Constants {
 
         public String getName() {
             return name;
+        }
+
+        public int getLevel() {
+            return level;
+        }
+
+        static public Protocols getByType(String type){
+            for(Protocols protocolArr: values())
+                for(String value: protocolArr.getTypes())
+                    if(value.equalsIgnoreCase(type))
+                        return protocolArr;
+            return null;
+
         }
     }
 }

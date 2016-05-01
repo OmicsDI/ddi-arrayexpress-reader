@@ -131,6 +131,9 @@ public class generateArrayExpressFile {
 
                     //Add Protocol information as additional fields
 
+                    Map<Integer, Protocol> sampleProtocol = new TreeMap<Integer, Protocol>();
+                    Map<Integer, Protocol> dataProtocol   = new TreeMap<Integer, Protocol>();
+
                     for(uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.Protocol protocolId: ex.getProtocol()){
                         Protocol protocol = protocolMap.get(protocolId.getAccession());
                         if(protocol != null){
@@ -142,7 +145,32 @@ public class generateArrayExpressFile {
                             if(protocol.getHardware() != null && !protocol.getHardware().isEmpty()){
                                 entry.addAdditionalField(Field.INSTRUMENT.getName(), protocol.getHardware());
                             }
-                        }
+
+                            Constants.Protocols protocolConstant = Constants.Protocols.getByType(protocol.getType());
+
+                            if(protocolConstant != null)
+                                if(protocolConstant.getField() == Field.SAMPLE)
+                                    sampleProtocol.put(protocolConstant.getLevel(), protocol);
+                                else if(protocolConstant.getField() == Field.DATA)
+                                    dataProtocol.put(protocolConstant.getLevel(), protocol);
+
+                            }
+                    }
+
+                    if(!sampleProtocol.isEmpty()){
+                        String sampleProtocolStr = "";
+                        for(Protocol sampleProtcolValue: sampleProtocol.values())
+                            sampleProtocolStr = sampleProtocolStr + " " + Constants.Protocols.getByType(sampleProtcolValue.getType()).getName() + " - " + sampleProtcolValue.getText() + "\n";
+                        sampleProtocolStr = sampleProtocolStr.trim();
+                        entry.addAdditionalField(Field.SAMPLE.getName(), sampleProtocolStr);
+                    }
+
+                    if(!dataProtocol.isEmpty()){
+                        String dataProtocolStr = "";
+                        for(Protocol dataProtcolValue: dataProtocol.values())
+                            dataProtocolStr = dataProtocolStr + " " + Constants.Protocols.getByType(dataProtcolValue.getType()).getName() + " - " + dataProtcolValue.getText() + "\n";
+                        dataProtocolStr = dataProtocolStr.trim();
+                        entry.addAdditionalField(Field.DATA.getName(), dataProtocolStr);
                     }
 
                     entry.addAdditionalField(Field.LINK.getName(), Constants.ARRAYEXPRESS_URL + entry.getId());
