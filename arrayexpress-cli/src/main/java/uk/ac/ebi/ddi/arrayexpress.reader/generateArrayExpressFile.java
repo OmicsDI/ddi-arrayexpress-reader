@@ -11,8 +11,6 @@ import uk.ac.ebi.ddi.arrayexpress.reader.utils.ArrayExpressUtils;
 import uk.ac.ebi.ddi.arrayexpress.reader.utils.Constants;
 import uk.ac.ebi.ddi.xml.validator.parser.marshaller.OmicsDataMarshaller;
 import uk.ac.ebi.ddi.xml.validator.parser.model.*;
-import uk.ac.ebi.ddi.xml.validator.parser.model.Date;
-import uk.ac.ebi.ddi.xml.validator.utils.*;
 import uk.ac.ebi.ddi.xml.validator.utils.Field;
 
 import java.io.File;
