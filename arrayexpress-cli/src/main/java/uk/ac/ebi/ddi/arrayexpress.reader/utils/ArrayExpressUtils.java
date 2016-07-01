@@ -34,4 +34,18 @@ public class ArrayExpressUtils {
         return arrValue;
 
     }
+
+    /**
+     * Some editings to the current protocols in ArrayExpress
+     * @param protocol
+     * @return
+     */
+    public static String refineProtocol(String protocol){
+        if(protocol != null){
+            protocol = protocol.replace("Description:", "");
+            protocol = protocol.replace("Title: ", "");
+            return protocol;
+        }
+        return protocol;
+    }
 }

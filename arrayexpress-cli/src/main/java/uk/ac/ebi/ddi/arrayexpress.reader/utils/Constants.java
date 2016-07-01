@@ -63,7 +63,7 @@ public class Constants {
         FEATURE_EXTRACTION(new String[]{"feature_extraction"}, Field.DATA, "Feature Extraction", 1),
         HYBRIDIZATION(new String[]{"nucleic acid hybridization to array protocol","hybridization", "hybridization protocol"}, Field.SAMPLE, "Hybridization", 2),
         TREATMENT(new String[]{"sample treatment protocol", "treatment protocol"},Field.SAMPLE, "Sample Treatment", 1),
-        GROWTH(new String[]{"grow", "growth protocol"}, Field.SAMPLE, "Growth", 0),
+        GROWTH(new String[]{"grow", "growth protocol", "growth", "growth condition"}, Field.SAMPLE, "Growth Protocol", 0),
         ARRAY_SACANING( new String[]{"array scanning protocol", "array scanning and feature extraction protocol"}, Field.SAMPLE, "Scaning", 6),
         IMAGE_ADQUISITION(new String[]{"image_aquisition", "image_acquisition"}, Field.DATA, "Image Adquisition", 5),
         SAMPLE_PROCESSING(new String[]{"specified_biomaterial_action"}, Field.SAMPLE, "Sample Processing", 1),

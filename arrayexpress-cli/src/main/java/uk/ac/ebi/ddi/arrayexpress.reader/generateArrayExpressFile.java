@@ -133,17 +133,13 @@ public class generateArrayExpressFile {
                     for(uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.Protocol protocolId: ex.getProtocol()){
                         Protocol protocol = protocolMap.get(protocolId.getAccession());
                         if(protocol != null){
-                            System.out.println(protocol.getName());
-                            entry.addAdditionalField(protocol.getType(), protocol.getText());
                             if(protocol.getSoftware() != null && !protocol.getSoftware().isEmpty()){
                                 entry.addAdditionalField(Field.SOFTWARE_INFO.getName(), protocol.getSoftware());
                             }
                             if(protocol.getHardware() != null && !protocol.getHardware().isEmpty()){
                                 entry.addAdditionalField(Field.INSTRUMENT.getName(), protocol.getHardware());
                             }
-
                             Constants.Protocols protocolConstant = Constants.Protocols.getByType(protocol.getType());
-
                             if(protocolConstant != null && protocol.getText() != null && !protocol.getText().isEmpty())
                                 if(protocolConstant.getField() == Field.SAMPLE)
                                     sampleProtocol.put(protocolConstant.getLevel(), protocol);
@@ -156,7 +152,7 @@ public class generateArrayExpressFile {
                     if(!sampleProtocol.isEmpty()){
                         String sampleProtocolStr = "";
                         for(Protocol sampleProtcolValue: sampleProtocol.values())
-                            sampleProtocolStr = sampleProtocolStr + " " + Constants.Protocols.getByType(sampleProtcolValue.getType()).getName() + " - " + sampleProtcolValue.getText() + "\n";
+                            sampleProtocolStr = sampleProtocolStr + " " + Constants.Protocols.getByType(sampleProtcolValue.getType()).getName() + " - " + ArrayExpressUtils.refineProtocol(sampleProtcolValue.getText()) + "\n";
                         sampleProtocolStr = sampleProtocolStr.trim();
                         entry.addAdditionalField(Field.SAMPLE.getName(), sampleProtocolStr);
                     }
@@ -164,7 +160,7 @@ public class generateArrayExpressFile {
                     if(!dataProtocol.isEmpty()){
                         String dataProtocolStr = "";
                         for(Protocol dataProtcolValue: dataProtocol.values())
-                            dataProtocolStr = dataProtocolStr + " " + Constants.Protocols.getByType(dataProtcolValue.getType()).getName() + " - " + dataProtcolValue.getText() + "\n";
+                            dataProtocolStr = dataProtocolStr + " " + Constants.Protocols.getByType(dataProtcolValue.getType()).getName() + " - " + ArrayExpressUtils.refineProtocol(dataProtcolValue.getText()) + "\n";
                         dataProtocolStr = dataProtocolStr.trim();
                         entry.addAdditionalField(Field.DATA.getName(), dataProtocolStr);
                     }
@@ -214,7 +210,7 @@ public class generateArrayExpressFile {
                     }
                     if(ex.getBibliography() != null && !ex.getBibliography().isEmpty()){
                         for(Bibliography biblio: ex.getBibliography()){
-                            if(biblio != null && biblio.getAccession() != null){
+                            if(biblio != null && biblio.getAccession() != null && !biblio.getAccession().isEmpty()){
                                 entry.addCrossReferenceValue(Field.PUBMED.getName(), biblio.getAccession());
                             }
                         }
@@ -225,6 +221,15 @@ public class generateArrayExpressFile {
                                 entry.addAdditionalField(Field.SPECIE_FIELD.getName(), sampleattribute.getValue());
                         }
                     }
+
+                    if(ex.getSecondaryaccession() != null && !ex.getSecondaryaccession().isEmpty()){
+                        ex.getSecondaryaccession().stream().forEach( accession ->{
+                            if(accession != null && accession.isEmpty())
+                                entry.addAdditionalField(Field.SECONDARY_ACCESSION.getName(), accession);
+                        });
+                    }
+
+                    entry.addAdditionalField(Field.REPOSITORY.getName(), "ArrayExpress");
 
                     entries.addEntry(entry);
 
