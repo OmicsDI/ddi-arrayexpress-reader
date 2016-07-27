@@ -8,7 +8,6 @@ import uk.ac.ebi.ddi.arrayexpress.reader.xml.unmarshaller.ExperimentUnmarshaller
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
-import java.io.InputStream;
 
 
 /**

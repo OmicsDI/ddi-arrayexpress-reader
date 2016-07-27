@@ -2,8 +2,6 @@ package uk.ac.ebi.ddi.arrayexpress.reader.utils;
 
 import uk.ac.ebi.ddi.xml.validator.utils.Field;
 
-import java.util.List;
-
 /**
  * @author ypriverol
  */
@@ -22,7 +20,7 @@ public class Constants {
     public enum ArrayExpressType{
         DNA_ASSAY(new String[]{"DNA assay", "DNA-seq", "Amplicon sequencing", "ChIP-seq", "methylation profiling by high throughput sequencing"}, "Genomics"),
         METABOLOMIC_PROFILING(new String[]{"Metabolomic profiling"}, "Metabolomics"),
-        PROTEIN_ASSAY(new String[]{"Protein assay", "proteomic profiling by array", "antigen profiling"}, "Proteomics"),
+        PROTEIN_ASSAY(new String[]{"Protein assay", "proteomic profiling by array", "antigen profiling", "proteomic profiling by mass spectrometer"}, "Proteomics"),
         RNA_ASSAY(new String[]{"RNA assay", "RNA-seq of coding RNA",
                 "RNA-seq of non coding RNA",
                 "microRNA profiling by array",
