@@ -66,7 +66,7 @@ public class generateArrayExpressFile {
         options.addOption(omicsDIFileStr, true, "Output File for omicsDI");
 
         // Parse command line
-        CommandLine line = null;
+        CommandLine line;
         try {
             line = parser.parse(options, args);
             if (line.hasOption(helpOpt) || !line.hasOption(protocolFileStr) ||
