@@ -175,7 +175,7 @@ public class generateArrayExpressFile {
                             if(factor != null && factor.getName() != null && ArrayExpressUtils.cotainsValue(Constants.TISSUE, factor.getName())){
                                 String[] values = ArrayExpressUtils.refineValues(factor.getValue());
                                 for(String value: values)
-                                    entry.addAdditionalField(Field.TISSUE_FIELD.getName(), value);
+                                    entry.addAdditionalField(Field.TISSUE_FIELD.getName(), ArrayExpressUtils.toTitleCase(value));
                             }
                         }
                     }
@@ -185,7 +185,7 @@ public class generateArrayExpressFile {
                             if(sample != null && sample.getValue() != null && ArrayExpressUtils.cotainsValue(Constants.DISEASE, sample.getCategory())){
                                 String[] values = ArrayExpressUtils.refineValues(sample.getValue());
                                 for(String value: values)
-                                    entry.addAdditionalField(Field.DISEASE_FIELD.getName(), value);
+                                    entry.addAdditionalField(Field.DISEASE_FIELD.getName(), ArrayExpressUtils.toTitleCase(value));
                             }
                         }
                     }
@@ -218,7 +218,7 @@ public class generateArrayExpressFile {
                     for(Sampleattribute sampleattribute: ex.getSampleattribute()){
                         if(sampleattribute != null && sampleattribute.getCategory() != null){
                             if(sampleattribute.getCategory().equalsIgnoreCase(Constants.ORGANISM_TAG))
-                                entry.addAdditionalField(Field.SPECIE_FIELD.getName(), sampleattribute.getValue());
+                                entry.addAdditionalField(Field.SPECIE_FIELD.getName(), ArrayExpressUtils.toTitleCase(sampleattribute.getValue()));
                         }
                     }
 
