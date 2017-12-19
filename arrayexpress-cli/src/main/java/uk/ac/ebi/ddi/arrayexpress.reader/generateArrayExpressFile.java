@@ -95,7 +95,6 @@ public class generateArrayExpressFile {
      * @throws Exception
      */
     public static void generate(Experiments experiments, Protocols protocols, File outputFile) throws Exception {
-
         OmicsDataMarshaller mm = new OmicsDataMarshaller();
 
         Database database = new Database();
@@ -222,14 +221,35 @@ public class generateArrayExpressFile {
                         }
                     }
 
+                    HashSet<String> repositories = new HashSet<String>();
+                    repositories.add("ArrayExpress");
                     if(ex.getSecondaryaccession() != null && !ex.getSecondaryaccession().isEmpty()){
                         ex.getSecondaryaccession().stream().forEach( accession ->{
-                            if(accession != null && accession.isEmpty())
+                            if(accession != null && !accession.isEmpty()) {
+                                String str = accession.substring(0,3);
+                                switch(str){
+                                    case "ERP":
+                                    case "SRP":
+                                        repositories.add("ENA");
+                                        logger.info(ex.getAccession() + " secondary accession prefix:"+str+" added ENA repository");
+                                        break;
+                                    case "GSE":
+                                    case "GDS":
+                                        repositories.add("GEO");
+                                        logger.info(ex.getAccession() + " secondary accession prefix:"+str+" added GEO repository");
+                                        break;
+                                    default:
+                                        logger.info(ex.getAccession() + " unknown secondary accession prefix:"+str);
+                                        break; //noop
+                                }
                                 entry.addAdditionalField(Field.SECONDARY_ACCESSION.getName(), accession);
+                            }
                         });
                     }
 
-                    entry.addAdditionalField(Field.REPOSITORY.getName(), "ArrayExpress");
+                    for(String repository : repositories) {
+                        entry.addAdditionalField(Field.REPOSITORY.getName(), repository);
+                    }
 
                     entries.addEntry(entry);
 
