@@ -1,27 +1,23 @@
 
 package uk.ac.ebi.ddi.arrayexpress.reader.model.experiments;
 
+import uk.ac.ebi.ddi.arrayexpress.reader.model.IArrayExpress;
+
+import javax.xml.bind.annotation.*;
+import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
+import javax.xml.datatype.XMLGregorianCalendar;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
-import javax.xml.bind.annotation.adapters.CollapsedStringAdapter;
-import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
-import javax.xml.datatype.XMLGregorianCalendar;
-import uk.ac.ebi.ddi.arrayexpress.reader.model.IArrayExpress;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -55,41 +51,38 @@ import uk.ac.ebi.ddi.arrayexpress.reader.model.IArrayExpress;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "id",
-    "accession",
-    "secondaryaccession",
-    "name",
-    "experimenttype",
-    "releasedate",
-    "submissiondate",
-    "lastupdatedate",
-    "samples",
-    "hybs",
-    "user",
-    "sampleattribute",
-    "experimentalfactor",
-    "miamescore",
-    "arraydesign",
-    "bioassaydatagroup",
-    "bibliography",
-    "provider",
-    "experimentdesign",
-    "description",
-    "protocol",
-    "seqdatauri",
-    "anonymousreview"
+        "id",
+        "accession",
+        "secondaryaccession",
+        "name",
+        "experimenttype",
+        "releasedate",
+        "submissiondate",
+        "lastupdatedate",
+        "samples",
+        "hybs",
+        "user",
+        "sampleattribute",
+        "experimentalfactor",
+        "miamescore",
+        "arraydesign",
+        "bioassaydatagroup",
+        "bibliography",
+        "provider",
+        "experimentdesign",
+        "description",
+        "protocol",
+        "seqdatauri",
+        "anonymousreview"
 })
 @XmlRootElement(name = "experiment")
 public class Experiment
-    implements Serializable, IArrayExpress
-{
+        implements Serializable, IArrayExpress {
 
-    private final static long serialVersionUID = 100L;
+    private static final long serialVersionUID = 100L;
     @XmlElement(required = true)
     protected BigInteger id;
     @XmlElement(required = true)
@@ -132,11 +125,9 @@ public class Experiment
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getId() {
         return id;
@@ -144,11 +135,9 @@ public class Experiment
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setId(BigInteger value) {
         this.id = value;
@@ -156,11 +145,9 @@ public class Experiment
 
     /**
      * Gets the value of the accession property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAccession() {
         return accession;
@@ -168,11 +155,9 @@ public class Experiment
 
     /**
      * Sets the value of the accession property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAccession(String value) {
         this.accession = value;
@@ -180,40 +165,36 @@ public class Experiment
 
     /**
      * Gets the value of the secondaryaccession property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the secondaryaccession property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSecondaryaccession().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     * 
-     * 
      */
     public List<String> getSecondaryaccession() {
         if (secondaryaccession == null) {
-            secondaryaccession = new ArrayList<String>();
+            secondaryaccession = new ArrayList<>();
         }
         return this.secondaryaccession;
     }
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -221,11 +202,9 @@ public class Experiment
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -233,25 +212,23 @@ public class Experiment
 
     /**
      * Gets the value of the experimenttype property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the experimenttype property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExperimenttype().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     * 
-     * 
      */
     public List<String> getExperimenttype() {
         if (experimenttype == null) {
@@ -262,11 +239,9 @@ public class Experiment
 
     /**
      * Gets the value of the releasedate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @return possible object is
+     * {@link XMLGregorianCalendar }
      */
     public XMLGregorianCalendar getReleasedate() {
         return releasedate;
@@ -274,11 +249,9 @@ public class Experiment
 
     /**
      * Sets the value of the releasedate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link XMLGregorianCalendar }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link XMLGregorianCalendar }
      */
     public void setReleasedate(XMLGregorianCalendar value) {
         this.releasedate = value;
@@ -286,11 +259,9 @@ public class Experiment
 
     /**
      * Gets the value of the submissiondate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSubmissiondate() {
         return submissiondate;
@@ -298,11 +269,9 @@ public class Experiment
 
     /**
      * Sets the value of the submissiondate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSubmissiondate(String value) {
         this.submissiondate = value;
@@ -310,11 +279,9 @@ public class Experiment
 
     /**
      * Gets the value of the lastupdatedate property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getLastupdatedate() {
         return lastupdatedate;
@@ -322,11 +289,9 @@ public class Experiment
 
     /**
      * Sets the value of the lastupdatedate property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setLastupdatedate(String value) {
         this.lastupdatedate = value;
@@ -334,11 +299,9 @@ public class Experiment
 
     /**
      * Gets the value of the samples property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getSamples() {
         return samples;
@@ -346,11 +309,9 @@ public class Experiment
 
     /**
      * Sets the value of the samples property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setSamples(BigInteger value) {
         this.samples = value;
@@ -358,11 +319,9 @@ public class Experiment
 
     /**
      * Gets the value of the hybs property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getHybs() {
         return hybs;
@@ -370,11 +329,9 @@ public class Experiment
 
     /**
      * Sets the value of the hybs property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setHybs(BigInteger value) {
         this.hybs = value;
@@ -382,25 +339,23 @@ public class Experiment
 
     /**
      * Gets the value of the user property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the user property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getUser().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link BigInteger }
-     * 
-     * 
      */
     public List<BigInteger> getUser() {
         if (user == null) {
@@ -411,25 +366,23 @@ public class Experiment
 
     /**
      * Gets the value of the sampleattribute property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the sampleattribute property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSampleattribute().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Sampleattribute }
-     * 
-     * 
      */
     public List<Sampleattribute> getSampleattribute() {
         if (sampleattribute == null) {
@@ -440,25 +393,23 @@ public class Experiment
 
     /**
      * Gets the value of the experimentalfactor property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the experimentalfactor property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExperimentalfactor().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Experimentalfactor }
-     * 
-     * 
      */
     public List<Experimentalfactor> getExperimentalfactor() {
         if (experimentalfactor == null) {
@@ -469,25 +420,23 @@ public class Experiment
 
     /**
      * Gets the value of the miamescore property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the miamescore property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getMiamescore().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Miamescore }
-     * 
-     * 
      */
     public List<Miamescore> getMiamescore() {
         if (miamescore == null) {
@@ -498,25 +447,23 @@ public class Experiment
 
     /**
      * Gets the value of the arraydesign property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the arraydesign property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getArraydesign().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Arraydesign }
-     * 
-     * 
      */
     public List<Arraydesign> getArraydesign() {
         if (arraydesign == null) {
@@ -527,25 +474,23 @@ public class Experiment
 
     /**
      * Gets the value of the bioassaydatagroup property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the bioassaydatagroup property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getBioassaydatagroup().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Bioassaydatagroup }
-     * 
-     * 
      */
     public List<Bioassaydatagroup> getBioassaydatagroup() {
         if (bioassaydatagroup == null) {
@@ -556,25 +501,23 @@ public class Experiment
 
     /**
      * Gets the value of the bibliography property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the bibliography property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getBibliography().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Bibliography }
-     * 
-     * 
      */
     public List<Bibliography> getBibliography() {
         if (bibliography == null) {
@@ -585,25 +528,23 @@ public class Experiment
 
     /**
      * Gets the value of the provider property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the provider property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getProvider().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Provider }
-     * 
-     * 
      */
     public List<Provider> getProvider() {
         if (provider == null) {
@@ -614,25 +555,23 @@ public class Experiment
 
     /**
      * Gets the value of the experimentdesign property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the experimentdesign property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getExperimentdesign().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     * 
-     * 
      */
     public List<String> getExperimentdesign() {
         if (experimentdesign == null) {
@@ -643,11 +582,9 @@ public class Experiment
 
     /**
      * Gets the value of the description property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getDescription() {
         return description;
@@ -655,11 +592,9 @@ public class Experiment
 
     /**
      * Sets the value of the description property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setDescription(String value) {
         this.description = value;
@@ -667,25 +602,23 @@ public class Experiment
 
     /**
      * Gets the value of the protocol property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the protocol property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getProtocol().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Protocol }
-     * 
-     * 
      */
     public List<Protocol> getProtocol() {
         if (protocol == null) {
@@ -696,25 +629,23 @@ public class Experiment
 
     /**
      * Gets the value of the seqdatauri property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the seqdatauri property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getSeqdatauri().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
-     * 
-     * 
      */
     public List<String> getSeqdatauri() {
         if (seqdatauri == null) {
@@ -725,11 +656,9 @@ public class Experiment
 
     /**
      * Gets the value of the anonymousreview property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAnonymousreview() {
         return anonymousreview;
@@ -737,11 +666,9 @@ public class Experiment
 
     /**
      * Sets the value of the anonymousreview property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAnonymousreview(String value) {
         this.anonymousreview = value;

@@ -1,8 +1,4 @@
-package uk.ac.ebi.ddi.arrayexpress.reader.model.experiments;
-
-import uk.ac.ebi.ddi.arrayexpress.reader.model.protocols.Parameter;
-import uk.ac.ebi.ddi.arrayexpress.reader.model.protocols.Protocol;
-import uk.ac.ebi.ddi.arrayexpress.reader.model.protocols.Protocols;
+package uk.ac.ebi.ddi.arrayexpress.reader.model.protocols;
 
 import javax.xml.namespace.QName;
 import java.util.Collections;

@@ -13,7 +13,7 @@ import javax.xml.bind.Unmarshaller;
  */
 public class ExperimentUnmarshallerFactory {
 
-    private static final Logger logger = LoggerFactory.getLogger(ExperimentUnmarshallerFactory.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ExperimentUnmarshallerFactory.class);
 
     private static ExperimentUnmarshallerFactory instance = new ExperimentUnmarshallerFactory();
 
@@ -36,12 +36,12 @@ public class ExperimentUnmarshallerFactory {
 
             //create unmarshaller
             Unmarshaller pum = jc.createUnmarshaller();
-            logger.info("Unmarshaller Initialized");
+            LOGGER.info("Unmarshaller Initialized");
 
             return pum;
 
         } catch (JAXBException e) {
-            logger.error("UnmarshallerFactory.initializeUnmarshaller", e);
+            LOGGER.error("UnmarshallerFactory.initializeUnmarshaller", e);
             throw new IllegalStateException("Could not initialize unmarshaller", e);
         }
     }

@@ -1,21 +1,18 @@
 
 package uk.ac.ebi.ddi.arrayexpress.reader.model.protocols;
 
+import uk.ac.ebi.ddi.arrayexpress.reader.model.IArrayExpress;
+
+import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 import java.math.BigInteger;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import uk.ac.ebi.ddi.arrayexpress.reader.model.IArrayExpress;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -28,20 +25,16 @@ import uk.ac.ebi.ddi.arrayexpress.reader.model.IArrayExpress;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "name",
-    "order"
+        "name",
+        "order"
 })
 @XmlRootElement(name = "parameter")
-public class Parameter
-    implements Serializable, IArrayExpress
-{
+public class Parameter implements Serializable, IArrayExpress {
 
-    private final static long serialVersionUID = 100L;
+    private static final long serialVersionUID = 100L;
     @XmlElement(required = true)
     protected String name;
     @XmlElement(required = true)
@@ -49,11 +42,9 @@ public class Parameter
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -61,11 +52,9 @@ public class Parameter
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -73,11 +62,9 @@ public class Parameter
 
     /**
      * Gets the value of the order property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getOrder() {
         return order;
@@ -85,11 +72,9 @@ public class Parameter
 
     /**
      * Sets the value of the order property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setOrder(BigInteger value) {
         this.order = value;

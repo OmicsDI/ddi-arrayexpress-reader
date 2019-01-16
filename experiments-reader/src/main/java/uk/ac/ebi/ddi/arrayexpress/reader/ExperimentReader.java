@@ -1,7 +1,5 @@
 package uk.ac.ebi.ddi.arrayexpress.reader;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.Experiments;
 import uk.ac.ebi.ddi.arrayexpress.reader.xml.unmarshaller.ExperimentUnmarshallerFactory;
 
@@ -17,8 +15,6 @@ import java.io.File;
  * Time: 12:13:31
  */
 public class ExperimentReader {
-
-    private static final Logger logger = LoggerFactory.getLogger(ExperimentReader.class);
 
     /**
      * internal unmashaller

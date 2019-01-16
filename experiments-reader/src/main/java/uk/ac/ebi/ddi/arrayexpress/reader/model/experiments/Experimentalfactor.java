@@ -1,21 +1,17 @@
 
 package uk.ac.ebi.ddi.arrayexpress.reader.model.experiments;
 
-import java.io.Serializable;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
 import uk.ac.ebi.ddi.arrayexpress.reader.model.IArrayExpress;
+
+import javax.xml.bind.annotation.*;
+import java.io.Serializable;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -26,17 +22,13 @@ import uk.ac.ebi.ddi.arrayexpress.reader.model.IArrayExpress;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "experimentalfactor")
-public class Experimentalfactor
-    implements Serializable, IArrayExpress
-{
+public class Experimentalfactor implements Serializable, IArrayExpress {
 
-    private final static long serialVersionUID = 100L;
+    private static final long serialVersionUID = 100L;
     @XmlAttribute(required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String name;
@@ -46,11 +38,9 @@ public class Experimentalfactor
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -58,11 +48,9 @@ public class Experimentalfactor
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -70,11 +58,9 @@ public class Experimentalfactor
 
     /**
      * Gets the value of the value property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getValue() {
         return value;
@@ -82,11 +68,9 @@ public class Experimentalfactor
 
     /**
      * Sets the value of the value property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setValue(String value) {
         this.value = value;

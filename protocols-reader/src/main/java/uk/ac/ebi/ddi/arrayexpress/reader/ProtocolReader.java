@@ -18,7 +18,7 @@ import java.io.File;
  */
 public class ProtocolReader {
 
-    private static final Logger logger = LoggerFactory.getLogger(ProtocolReader.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ProtocolReader.class);
 
     /**
      * internal unmashaller

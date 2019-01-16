@@ -17,7 +17,7 @@ import javax.xml.bind.Marshaller;
  */
 public class ExperimentMarshallerFactory {
 
-    private static final Logger logger = LoggerFactory.getLogger(ExperimentMarshallerFactory.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(ExperimentMarshallerFactory.class);
 
     private static ExperimentMarshallerFactory instance = new ExperimentMarshallerFactory();
 
@@ -40,12 +40,12 @@ public class ExperimentMarshallerFactory {
 
             //create unmarshaller
             Marshaller pm = jc.createMarshaller();
-            logger.info("Marshaller Initialized");
+            LOGGER.info("Marshaller Initialized");
 
             return pm;
 
         } catch (JAXBException e) {
-            logger.error("UnimodMarshaller.initializeMarshaller", e);
+            LOGGER.error("UnimodMarshaller.initializeMarshaller", e);
             throw new IllegalStateException("Could not initialize marshaller", e);
         }
     }

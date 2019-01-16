@@ -9,28 +9,31 @@ import java.util.List;
  */
 public class ArrayExpressUtils {
 
-    public static boolean cotainsValue(String[] arr, String key){
-        if(arr != null && key != null){
-            for(String value: arr)
-                if(value.equalsIgnoreCase(key))
+    public static boolean cotainsValue(String[] arr, String key) {
+        if (arr != null && key != null) {
+            for (String value: arr) {
+                if (value.equalsIgnoreCase(key)) {
                     return true;
+                }
+            }
         }
         return false;
     }
 
     public static String[] refineValues(String value) {
         String[] values = value.split(";");
-        List<String> resultValues = new ArrayList<String>();
-        for(String keyValue :values){
-            if(!keyValue.toUpperCase().contains("AVAILABLE") && !keyValue.toUpperCase().contains("APPLICABLE")
-                    && !keyValue.toUpperCase().contains("NOT SPECIFIED")){
+        List<String> resultValues = new ArrayList<>();
+        for (String keyValue :values) {
+            if (!keyValue.toUpperCase().contains("AVAILABLE") && !keyValue.toUpperCase().contains("APPLICABLE")
+                    && !keyValue.toUpperCase().contains("NOT SPECIFIED")) {
                 keyValue = keyValue.replace("_", " ");
                 resultValues.add(keyValue);
             }
         }
         String[] arrValue = new String[resultValues.size()];
-        for(int i = 0; i < resultValues.size(); i++)
+        for (int i = 0; i < resultValues.size(); i++) {
             arrValue[i] = resultValues.get(i);
+        }
         return arrValue;
 
     }
@@ -40,8 +43,8 @@ public class ArrayExpressUtils {
      * @param protocol
      * @return
      */
-    public static String refineProtocol(String protocol){
-        if(protocol != null){
+    public static String refineProtocol(String protocol) {
+        if (protocol != null) {
             protocol = protocol.replace("Description:", "");
             protocol = protocol.replace("Title: ", "");
             return protocol;
@@ -52,14 +55,10 @@ public class ArrayExpressUtils {
     public static String toTitleCase(String input) {
         StringBuilder titleCase = new StringBuilder();
         boolean nextTitleCase = true;
-        for (char c : input.toCharArray())
-        {
-            if (Character.isSpaceChar(c))
-            {
+        for (char c : input.toCharArray()) {
+            if (Character.isSpaceChar(c)) {
                 nextTitleCase = true;
-            }
-            else if (nextTitleCase)
-            {
+            } else if (nextTitleCase) {
                 c = Character.toTitleCase(c);
                 nextTitleCase = false;
             }

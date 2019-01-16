@@ -1,21 +1,17 @@
 
 package uk.ac.ebi.ddi.arrayexpress.reader.model.experiments;
 
-import java.io.Serializable;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlAttribute;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlSchemaType;
-import javax.xml.bind.annotation.XmlType;
 import uk.ac.ebi.ddi.arrayexpress.reader.model.IArrayExpress;
+
+import javax.xml.bind.annotation.*;
+import java.io.Serializable;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -27,17 +23,13 @@ import uk.ac.ebi.ddi.arrayexpress.reader.model.IArrayExpress;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "provider")
-public class Provider
-    implements Serializable, IArrayExpress
-{
+public class Provider implements Serializable, IArrayExpress {
 
-    private final static long serialVersionUID = 100L;
+    private static final long serialVersionUID = 100L;
     @XmlAttribute(required = true)
     @XmlSchemaType(name = "anySimpleType")
     protected String contact;
@@ -50,11 +42,9 @@ public class Provider
 
     /**
      * Gets the value of the contact property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getContact() {
         return contact;
@@ -62,11 +52,9 @@ public class Provider
 
     /**
      * Sets the value of the contact property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setContact(String value) {
         this.contact = value;
@@ -74,11 +62,9 @@ public class Provider
 
     /**
      * Gets the value of the email property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getEmail() {
         return email;
@@ -86,11 +72,9 @@ public class Provider
 
     /**
      * Sets the value of the email property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setEmail(String value) {
         this.email = value;
@@ -98,11 +82,9 @@ public class Provider
 
     /**
      * Gets the value of the role property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getRole() {
         return role;
@@ -110,11 +92,9 @@ public class Provider
 
     /**
      * Sets the value of the role property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setRole(String value) {
         this.role = value;

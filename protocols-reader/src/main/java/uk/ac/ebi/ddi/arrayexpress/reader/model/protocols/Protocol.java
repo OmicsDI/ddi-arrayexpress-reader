@@ -1,23 +1,20 @@
 
 package uk.ac.ebi.ddi.arrayexpress.reader.model.protocols;
 
+import uk.ac.ebi.ddi.arrayexpress.reader.model.IArrayExpress;
+
+import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
-import uk.ac.ebi.ddi.arrayexpress.reader.model.IArrayExpress;
 
 
 /**
  * <p>Java class for anonymous complex type.
- * 
+ *
  * <p>The following schema fragment specifies the expected content contained within this class.
- * 
+ *
  * <pre>
  * &lt;complexType>
  *   &lt;complexContent>
@@ -39,29 +36,25 @@ import uk.ac.ebi.ddi.arrayexpress.reader.model.IArrayExpress;
  *   &lt;/complexContent>
  * &lt;/complexType>
  * </pre>
- * 
- * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
-    "id",
-    "accession",
-    "name",
-    "user",
-    "text",
-    "type",
-    "performer",
-    "hardware",
-    "software",
-    "standardpublicprotocol",
-    "parameter"
+        "id",
+        "accession",
+        "name",
+        "user",
+        "text",
+        "type",
+        "performer",
+        "hardware",
+        "software",
+        "standardpublicprotocol",
+        "parameter"
 })
 @XmlRootElement(name = "protocol")
-public class Protocol
-    implements Serializable, IArrayExpress
-{
+public class Protocol implements Serializable, IArrayExpress {
 
-    private final static long serialVersionUID = 100L;
+    private static final long serialVersionUID = 100L;
     @XmlElement(required = true)
     protected BigInteger id;
     @XmlElement(required = true)
@@ -85,11 +78,9 @@ public class Protocol
 
     /**
      * Gets the value of the id property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getId() {
         return id;
@@ -97,11 +88,9 @@ public class Protocol
 
     /**
      * Sets the value of the id property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setId(BigInteger value) {
         this.id = value;
@@ -109,11 +98,9 @@ public class Protocol
 
     /**
      * Gets the value of the accession property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getAccession() {
         return accession;
@@ -121,11 +108,9 @@ public class Protocol
 
     /**
      * Sets the value of the accession property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setAccession(String value) {
         this.accession = value;
@@ -133,11 +118,9 @@ public class Protocol
 
     /**
      * Gets the value of the name property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getName() {
         return name;
@@ -145,11 +128,9 @@ public class Protocol
 
     /**
      * Sets the value of the name property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setName(String value) {
         this.name = value;
@@ -157,11 +138,9 @@ public class Protocol
 
     /**
      * Gets the value of the user property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @return possible object is
+     * {@link BigInteger }
      */
     public BigInteger getUser() {
         return user;
@@ -169,11 +148,9 @@ public class Protocol
 
     /**
      * Sets the value of the user property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link BigInteger }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link BigInteger }
      */
     public void setUser(BigInteger value) {
         this.user = value;
@@ -181,11 +158,9 @@ public class Protocol
 
     /**
      * Gets the value of the text property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getText() {
         return text;
@@ -193,11 +168,9 @@ public class Protocol
 
     /**
      * Sets the value of the text property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setText(String value) {
         this.text = value;
@@ -205,11 +178,9 @@ public class Protocol
 
     /**
      * Gets the value of the type property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getType() {
         return type;
@@ -217,11 +188,9 @@ public class Protocol
 
     /**
      * Sets the value of the type property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setType(String value) {
         this.type = value;
@@ -229,11 +198,9 @@ public class Protocol
 
     /**
      * Gets the value of the performer property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getPerformer() {
         return performer;
@@ -241,11 +208,9 @@ public class Protocol
 
     /**
      * Sets the value of the performer property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setPerformer(String value) {
         this.performer = value;
@@ -253,11 +218,9 @@ public class Protocol
 
     /**
      * Gets the value of the hardware property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getHardware() {
         return hardware;
@@ -265,11 +228,9 @@ public class Protocol
 
     /**
      * Sets the value of the hardware property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setHardware(String value) {
         this.hardware = value;
@@ -277,11 +238,9 @@ public class Protocol
 
     /**
      * Gets the value of the software property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getSoftware() {
         return software;
@@ -289,11 +248,9 @@ public class Protocol
 
     /**
      * Sets the value of the software property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setSoftware(String value) {
         this.software = value;
@@ -301,11 +258,9 @@ public class Protocol
 
     /**
      * Gets the value of the standardpublicprotocol property.
-     * 
-     * @return
-     *     possible object is
-     *     {@link String }
-     *     
+     *
+     * @return possible object is
+     * {@link String }
      */
     public String getStandardpublicprotocol() {
         return standardpublicprotocol;
@@ -313,11 +268,9 @@ public class Protocol
 
     /**
      * Sets the value of the standardpublicprotocol property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
+     *
+     * @param value allowed object is
+     *              {@link String }
      */
     public void setStandardpublicprotocol(String value) {
         this.standardpublicprotocol = value;
@@ -325,25 +278,23 @@ public class Protocol
 
     /**
      * Gets the value of the parameter property.
-     * 
+     *
      * <p>
      * This accessor method returns a reference to the live list,
      * not a snapshot. Therefore any modification you make to the
      * returned list will be present inside the JAXB object.
      * This is why there is not a <CODE>set</CODE> method for the parameter property.
-     * 
+     *
      * <p>
      * For example, to add a new item, do as follows:
      * <pre>
      *    getParameter().add(newItem);
      * </pre>
-     * 
-     * 
+     *
+     *
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link Parameter }
-     * 
-     * 
      */
     public List<Parameter> getParameter() {
         if (parameter == null) {
