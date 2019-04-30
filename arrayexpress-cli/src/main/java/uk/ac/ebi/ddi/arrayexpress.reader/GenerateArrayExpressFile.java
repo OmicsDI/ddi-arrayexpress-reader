@@ -9,9 +9,9 @@ import uk.ac.ebi.ddi.arrayexpress.reader.model.protocols.Protocol;
 import uk.ac.ebi.ddi.arrayexpress.reader.model.protocols.Protocols;
 import uk.ac.ebi.ddi.arrayexpress.reader.utils.ArrayExpressUtils;
 import uk.ac.ebi.ddi.arrayexpress.reader.utils.Constants;
+import uk.ac.ebi.ddi.ddidomaindb.dataset.DSField;
 import uk.ac.ebi.ddi.xml.validator.parser.marshaller.OmicsDataMarshaller;
 import uk.ac.ebi.ddi.xml.validator.parser.model.*;
-import uk.ac.ebi.ddi.xml.validator.utils.Field;
 
 import java.io.File;
 
@@ -109,13 +109,13 @@ public class GenerateArrayExpressFile {
 
         //Add Dates
         if (ex.getReleasedate() != null && !ex.getReleasedate().toString().isEmpty()) {
-            entry.addDate(Field.PUBLICATION.getName(), ex.getReleasedate().toString());
+            entry.addDate(DSField.Date.PUBLICATION.getName(), ex.getReleasedate().toString());
         }
         if (ex.getLastupdatedate() != null && !ex.getLastupdatedate().isEmpty()) {
-            entry.addDate(Field.PUBLICATION_UPDATED.getName(), ex.getLastupdatedate());
+            entry.addDate(DSField.Date.PUBLICATION_UPDATED.getName(), ex.getLastupdatedate());
         }
         if (ex.getSubmissiondate() != null && !ex.getSubmissiondate().isEmpty()) {
-            entry.addDate(Field.SUBMISSION_DATE.getName(), ex.getSubmissiondate());
+            entry.addDate(DSField.Additional.SUBMISSION_DATE.getName(), ex.getSubmissiondate());
         }
 
         //Add Protocol information as additional fields
@@ -127,16 +127,16 @@ public class GenerateArrayExpressFile {
             Protocol protocol = protocolMap.get(protcl.getAccession());
             if (protocol != null) {
                 if (protocol.getSoftware() != null && !protocol.getSoftware().isEmpty()) {
-                    entry.addAdditionalField(Field.SOFTWARE_INFO.getName(), protocol.getSoftware());
+                    entry.addAdditionalField(DSField.Additional.SOFTWARE_INFO.getName(), protocol.getSoftware());
                 }
                 if (protocol.getHardware() != null && !protocol.getHardware().isEmpty()) {
-                    entry.addAdditionalField(Field.INSTRUMENT.getName(), protocol.getHardware());
+                    entry.addAdditionalField(DSField.Additional.INSTRUMENT.getName(), protocol.getHardware());
                 }
                 Constants.Protocols protocolConstant = Constants.Protocols.getByType(protocol.getType());
                 if (protocolConstant != null && protocol.getText() != null && !protocol.getText().isEmpty()) {
-                    if (protocolConstant.getField() == Field.SAMPLE) {
+                    if (protocolConstant.getField() == DSField.Additional.SAMPLE) {
                         sampleProtocol.put(protocolConstant.getLevel(), protocol);
-                    } else if (protocolConstant.getField() == Field.DATA) {
+                    } else if (protocolConstant.getField() == DSField.Additional.DATA) {
                         dataProtocol.put(protocolConstant.getLevel(), protocol);
                     }
                 }
@@ -145,11 +145,11 @@ public class GenerateArrayExpressFile {
         }
 
         if (!sampleProtocol.isEmpty()) {
-            entry.addAdditionalField(Field.SAMPLE.getName(), generateProtocol(sampleProtocol));
+            entry.addAdditionalField(DSField.Additional.SAMPLE.getName(), generateProtocol(sampleProtocol));
         }
 
         if (!dataProtocol.isEmpty()) {
-            entry.addAdditionalField(Field.DATA.getName(), generateProtocol(dataProtocol));
+            entry.addAdditionalField(DSField.Additional.DATA.getName(), generateProtocol(dataProtocol));
         }
 
         if (ex.getExperimentalfactor() != null) {
@@ -158,14 +158,15 @@ public class GenerateArrayExpressFile {
                         && ArrayExpressUtils.cotainsValue(Constants.CELL_TYPE, factor.getName())) {
                     String[] values = ArrayExpressUtils.refineValues(factor.getValue());
                     for (String value : values) {
-                        entry.addAdditionalField(Field.CELL_TYPE_FIELD.getName(), value);
+                        entry.addAdditionalField(DSField.Additional.CELL_TYPE_FIELD.getName(), value);
                     }
                 }
                 if (factor != null && factor.getName() != null
                         && ArrayExpressUtils.cotainsValue(Constants.TISSUE, factor.getName())) {
                     String[] values = ArrayExpressUtils.refineValues(factor.getValue());
                     for (String value : values) {
-                        entry.addAdditionalField(Field.TISSUE_FIELD.getName(), ArrayExpressUtils.toTitleCase(value));
+                        entry.addAdditionalField(
+                                DSField.Additional.TISSUE_FIELD.getName(), ArrayExpressUtils.toTitleCase(value));
                     }
                 }
             }
@@ -177,28 +178,29 @@ public class GenerateArrayExpressFile {
                         && ArrayExpressUtils.cotainsValue(Constants.DISEASE, sample.getCategory())) {
                     String[] values = ArrayExpressUtils.refineValues(sample.getValue());
                     for (String value : values) {
-                        entry.addAdditionalField(Field.DISEASE_FIELD.getName(), ArrayExpressUtils.toTitleCase(value));
+                        entry.addAdditionalField(
+                                DSField.Additional.DISEASE_FIELD.getName(), ArrayExpressUtils.toTitleCase(value));
                     }
                 }
             }
         }
 
-        entry.addAdditionalField(Field.LINK.getName(), Constants.ARRAYEXPRESS_URL + entry.getId());
+        entry.addAdditionalField(DSField.Additional.LINK.getName(), Constants.ARRAYEXPRESS_URL + entry.getId());
 
         for (String type : ex.getExperimenttype()) {
             if (type != null && !type.isEmpty()) {
                 entry.addAdditionalField(
-                        Field.OMICS.getName(), Constants.ArrayExpressType.getByType(type).getOmicsType());
+                        DSField.Additional.OMICS.getName(), Constants.ArrayExpressType.getByType(type).getOmicsType());
             }
-            entry.addAdditionalField(Field.SUBMITTER_KEYWORDS.getName(), type);
+            entry.addAdditionalField(DSField.Additional.SUBMITTER_KEYWORDS.getName(), type);
         }
 
         if (ex.getProvider() != null && !ex.getProvider().isEmpty()) {
             for (Provider provider : ex.getProvider()) {
                 if (provider != null && provider.getContact() != null && !provider.getContact().isEmpty()) {
-                    entry.addAdditionalField(Field.SUBMITTER.getName(), provider.getContact());
+                    entry.addAdditionalField(DSField.Additional.SUBMITTER.getName(), provider.getContact());
                     if (provider.getEmail() != null && !provider.getEmail().isEmpty()) {
-                        entry.addAdditionalField(Field.SUBMITTER_EMAIL.getName(), provider.getEmail());
+                        entry.addAdditionalField(DSField.Additional.SUBMITTER_EMAIL.getName(), provider.getEmail());
                     }
                 }
             }
@@ -206,7 +208,7 @@ public class GenerateArrayExpressFile {
         if (ex.getBibliography() != null && !ex.getBibliography().isEmpty()) {
             for (Bibliography biblio : ex.getBibliography()) {
                 if (biblio != null && biblio.getAccession() != null && !biblio.getAccession().isEmpty()) {
-                    entry.addCrossReferenceValue(Field.PUBMED.getName(), biblio.getAccession());
+                    entry.addCrossReferenceValue(DSField.CrossRef.PUBMED.getName(), biblio.getAccession());
                 }
             }
         }
@@ -214,7 +216,8 @@ public class GenerateArrayExpressFile {
             if (sampleattribute != null && sampleattribute.getCategory() != null) {
                 if (sampleattribute.getCategory().equalsIgnoreCase(Constants.ORGANISM_TAG)) {
                     entry.addAdditionalField(
-                            Field.SPECIE_FIELD.getName(), ArrayExpressUtils.toTitleCase(sampleattribute.getValue()));
+                            DSField.Additional.SPECIE_FIELD.getName(),
+                            ArrayExpressUtils.toTitleCase(sampleattribute.getValue()));
                 }
             }
         }
@@ -240,12 +243,12 @@ public class GenerateArrayExpressFile {
                         LOGGER.info("{} unknown secondary accession prefix: {}", ex.getAccession(), str);
                         break; //noop
                 }
-                entry.addAdditionalField(Field.SECONDARY_ACCESSION.getName(), accession);
+                entry.addAdditionalField(DSField.Additional.SECONDARY_ACCESSION.getName(), accession);
             }
         });
 
         for (String repository : repositories) {
-            entry.addAdditionalField(Field.REPOSITORY.getName(), repository);
+            entry.addAdditionalField(DSField.Additional.REPOSITORY.getName(), repository);
         }
         return entry;
     }

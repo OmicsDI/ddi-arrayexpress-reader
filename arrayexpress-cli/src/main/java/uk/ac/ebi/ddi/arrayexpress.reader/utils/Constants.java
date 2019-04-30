@@ -1,6 +1,7 @@
 package uk.ac.ebi.ddi.arrayexpress.reader.utils;
 
-import uk.ac.ebi.ddi.xml.validator.utils.Field;
+import uk.ac.ebi.ddi.ddidomaindb.dataset.DSField;
+import uk.ac.ebi.ddi.ddidomaindb.dataset.Field;
 
 /**
  * @author ypriverol
@@ -58,30 +59,30 @@ public class Constants {
     }
 
     public enum Protocols {
-        NORMALIZATION(new String[] {"normalization data transformation protocol"}, Field.DATA,
+        NORMALIZATION(new String[] {"normalization data transformation protocol"}, DSField.Additional.DATA,
                 "Data Transformation", 2),
-        BIOASSAY_DATA(new String[] {"bioassay_data_transformation"}, Field.DATA,
+        BIOASSAY_DATA(new String[] {"bioassay_data_transformation"}, DSField.Additional.DATA,
                 "Assay Data Transformation", 0),
         NUCLEIC_ACID_EXTRACTION(new String[] {"nucleic_acid_extraction", "nucleic acid extraction protocol"},
-                Field.SAMPLE, "Nucleic Acid Extraction", 4),
-        NUCLEIC_ACID_SEQUENCING(new String[] {"nucleic acid sequencing protocol"}, Field.SAMPLE,
+                DSField.Additional.SAMPLE, "Nucleic Acid Extraction", 4),
+        NUCLEIC_ACID_SEQUENCING(new String[] {"nucleic acid sequencing protocol"}, DSField.Additional.SAMPLE,
                 "Sequencing", 5),
         LABELLING(new String[]{"labeling", "labelling protocol", "nucleic acid labeling protocol"},
-                Field.SAMPLE, "Labeling", 3),
-        FEATURE_EXTRACTION(new String[]{"feature_extraction"}, Field.DATA, "Feature Extraction", 1),
+                DSField.Additional.SAMPLE, "Labeling", 3),
+        FEATURE_EXTRACTION(new String[]{"feature_extraction"}, DSField.Additional.DATA, "Feature Extraction", 1),
         HYBRIDIZATION(new String[]{"nucleic acid hybridization to array protocol", "hybridization",
-                "hybridization protocol"}, Field.SAMPLE, "Hybridization", 2),
-        TREATMENT(new String[]{"sample treatment protocol", "treatment protocol"}, Field.SAMPLE,
+                "hybridization protocol"}, DSField.Additional.SAMPLE, "Hybridization", 2),
+        TREATMENT(new String[]{"sample treatment protocol", "treatment protocol"}, DSField.Additional.SAMPLE,
                 "Sample Treatment", 1),
-        GROWTH(new String[]{"grow", "growth protocol", "growth", "growth condition"}, Field.SAMPLE,
+        GROWTH(new String[]{"grow", "growth protocol", "growth", "growth condition"}, DSField.Additional.SAMPLE,
                 "Growth Protocol", 0),
         ARRAY_SACANING(new String[]{"array scanning protocol", "array scanning and feature extraction protocol"},
-                Field.SAMPLE, "Scaning", 6),
-        IMAGE_ADQUISITION(new String[]{"image_aquisition", "image_acquisition"}, Field.DATA,
+                DSField.Additional.SAMPLE, "Scaning", 6),
+        IMAGE_ADQUISITION(new String[]{"image_aquisition", "image_acquisition"}, DSField.Additional.DATA,
                 "Image Adquisition", 5),
-        SAMPLE_PROCESSING(new String[]{"specified_biomaterial_action"}, Field.SAMPLE,
+        SAMPLE_PROCESSING(new String[]{"specified_biomaterial_action"}, DSField.Additional.SAMPLE,
                 "Sample Processing", 1),
-        LIBRARY_CONSTRUCTION(new String[]{"nucleic acid library construction protocol"}, Field.SAMPLE,
+        LIBRARY_CONSTRUCTION(new String[]{"nucleic acid library construction protocol"}, DSField.Additional.SAMPLE,
                 "Library Construction", 3);
 
         final String[] types;
