@@ -16,25 +16,25 @@ import java.util.List;
  * <p>The following schema fragment specifies the expected content contained within this class.
  *
  * <pre>
- * &lt;complexType>
- *   &lt;complexContent>
- *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       &lt;sequence>
- *         &lt;element ref="{}id"/>
- *         &lt;element ref="{}accession"/>
- *         &lt;element ref="{}name"/>
- *         &lt;element ref="{}user" minOccurs="0"/>
- *         &lt;element ref="{}text"/>
- *         &lt;element ref="{}type"/>
- *         &lt;element ref="{}performer"/>
- *         &lt;element ref="{}hardware"/>
- *         &lt;element ref="{}software"/>
- *         &lt;element ref="{}standardpublicprotocol"/>
- *         &lt;element ref="{}parameter" maxOccurs="unbounded" minOccurs="0"/>
- *       &lt;/sequence>
- *     &lt;/restriction>
- *   &lt;/complexContent>
- * &lt;/complexType>
+ * <complexType>
+ *   <complexContent>
+ *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
+ *       <sequence>
+ *         <element ref="{}id"/>
+ *         <element ref="{}accession"/>
+ *         <element ref="{}name"/>
+ *         <element ref="{}user" minOccurs="0"/>
+ *         <element ref="{}text"/>
+ *         <element ref="{}type"/>
+ *         <element ref="{}performer"/>
+ *         <element ref="{}hardware"/>
+ *         <element ref="{}software"/>
+ *         <element ref="{}standardpublicprotocol"/>
+ *         <element ref="{}parameter" maxOccurs="unbounded" minOccurs="0"/>
+ *       </sequence>
+ *     </restriction>
+ *   </complexContent>
+ * </complexType>
  * </pre>
  */
 @XmlAccessorType(XmlAccessType.FIELD)
