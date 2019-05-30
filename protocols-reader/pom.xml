@@ -5,12 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <groupId>uk.ac.ebi.ddi.arraysexpress.readers</groupId>
+        <groupId>uk.ac.ebi.ddi.arrayexpress</groupId>
         <artifactId>arrayexpress-reader</artifactId>
         <version>0.1</version>
     </parent>
-    
-    <groupId>uk.ac.ebi.ddi.arrayexpress.readers</groupId>
+
     <artifactId>protocols-reader</artifactId>
     <version>1.1-SNAPSHOT</version>
 
