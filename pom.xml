@@ -18,64 +18,11 @@
 
 	<name>arrayexpress-reader</name>
 	<description>The jmzReader library is a collection of parsers to process the most commonly used Mass Spectrometry text and xml based file formats using a single interface.</description>
-	<url>http://code.google.com/p/jmzreader/</url>
-	<licenses>
-		<license>
-			<name>The Apache Software License, Version 2.0</name>
-			<url>http://www.apache.org/licenses/LICENSE-2.0.txt</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
 
 	<properties>
 		<maven.checkstyle.version>2.17</maven.checkstyle.version>
 		<checkstyle.config.location>checkstyle.xml</checkstyle.config.location>
 	</properties>
-
-	<developers>
-		<developer>
-			<id>yperez</id>
-			<name>Yasset Perez-Riverol</name>
-			<email>yperez@ebi.ac.uk</email>
-			<organization>Proteomics Services Team - EBI</organization>
-			<organizationUrl>http://www.ebi.ac.uk/proteomics</organizationUrl>
-			<timezone>0</timezone>
-		</developer>
-	</developers>
-	<organization>
-		<name>European Bioinformatics Institute, EBI</name>
-		<url>http://www.ebi.ac.uk/</url>
-	</organization>
-
-	<repositories>
-		<repository>
-			<id>ebi-repo</id>
-			<name>The EBI internal repository</name>
-			<url>http://www.ebi.ac.uk/~maven/m2repo</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-			<snapshots>
-				<enabled>false</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>ebi-snapshot-repo</id>
-			<name>The EBI internal snapshot repository</name>
-			<url>http://www.ebi.ac.uk/~maven/m2repo_snapshots</url>
-			<releases>
-				<enabled>false</enabled>
-			</releases>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-		<repository>
-			<id>central</id>
-			<name>Maven Central</name>
-			<url>http://repo1.maven.org/maven2/</url>
-		</repository>
-	</repositories>
 
 	<modules>
 		<module>experiments-reader</module>
@@ -83,17 +30,10 @@
 		<module>arrayexpress-cli</module>
     </modules>
 
-	<distributionManagement>
-		<!-- EBI repo -->
-		<repository>
-			<id>nexus-ebi-repo</id>
-			<url>http://www.ebi.ac.uk/Tools/maven/repos/content/groups/ebi-repo/</url>
-		</repository>
-		<!-- EBI SNAPSHOT repo -->
-		<snapshotRepository>
-			<id>nexus-ebi-repo-snapshots</id>
-			<url>http://www.ebi.ac.uk/Tools/maven/repos/content/groups/ebi-snapshots/</url>
-		</snapshotRepository>
-	</distributionManagement>
-
+	<scm>
+		<connection>scm:git:github.com/OmicsDI/ddi-arrayexpress-reader.git</connection>
+		<developerConnection>scm:git:git@github.com:OmicsDI/ddi-arrayexpress-reader.git</developerConnection>
+		<url>https://github.com/OmicsDI/ddi-arrayexpress-reader.git</url>
+		<tag>ddi-arrayexpress-reader-0.1</tag>
+	</scm>
 </project>
