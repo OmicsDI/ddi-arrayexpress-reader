@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * @author Yasset Perez-Riverol (ypriverol@gmail.com)
- * @date 01/05/2016
+ * 01/05/2016
  */
 public class ArrayExpressUtils {
 

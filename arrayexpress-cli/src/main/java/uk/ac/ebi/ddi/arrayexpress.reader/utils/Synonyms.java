@@ -5,7 +5,7 @@ import java.util.List;
 
 /**
  * @author Yasset Perez-Riverol (ypriverol@gmail.com)
- * @date 20/05/2015
+ * 20/05/2015
  */
 public enum Synonyms {
 

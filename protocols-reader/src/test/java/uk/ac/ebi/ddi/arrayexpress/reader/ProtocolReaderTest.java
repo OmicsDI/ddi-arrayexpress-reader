@@ -9,7 +9,7 @@ import java.net.URL;
 
 /**
  * @author Yasset Perez-Riverol (ypriverol@gmail.com)
- * @date 29/04/2016
+ * 29/04/2016
  */
 public class ProtocolReaderTest {
 
