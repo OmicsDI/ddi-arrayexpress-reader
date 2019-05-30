@@ -189,6 +189,7 @@ public class Experiment
      * <p>
      * Objects of the following type(s) are allowed in the list
      * {@link String }
+     * @return list string
      */
     public List<String> getExperimenttype() {
         if (experimenttype == null) {
