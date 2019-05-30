@@ -11,7 +11,7 @@
 
 	<groupId>uk.ac.ebi.ddi.arrayexpress</groupId>
 	<artifactId>arrayexpress-reader</artifactId>
-	<version>0.1</version>
+	<version>0.2-SNAPSHOT</version>
 	<packaging>pom</packaging>
 
 	<name>arrayexpress-reader</name>
@@ -32,6 +32,6 @@
 		<connection>scm:git:github.com/OmicsDI/ddi-arrayexpress-reader.git</connection>
 		<developerConnection>scm:git:git@github.com:OmicsDI/ddi-arrayexpress-reader.git</developerConnection>
 		<url>https://github.com/OmicsDI/ddi-arrayexpress-reader.git</url>
-		<tag>arrayexpress-reader-0.1</tag>
+		<tag>ddi-arrayexpress-reader-0.1</tag>
 	</scm>
 </project>

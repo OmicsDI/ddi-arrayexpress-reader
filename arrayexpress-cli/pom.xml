@@ -5,11 +5,11 @@
     <parent>
         <groupId>uk.ac.ebi.ddi.arrayexpress</groupId>
         <artifactId>arrayexpress-reader</artifactId>
-        <version>0.1</version>
+        <version>0.2-SNAPSHOT</version>
     </parent>
 
     <artifactId>arrayexpress-cli</artifactId>
-    <version>0.2.2</version>
+    <version>0.2.3-SNAPSHOT</version>
 
 
     <name>arrayexpress-cli</name>
