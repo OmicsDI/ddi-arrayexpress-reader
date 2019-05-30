@@ -12,46 +12,6 @@ import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
-
-/**
- * <p>Java class for anonymous complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * <complexType>
- *   <complexContent>
- *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       <sequence>
- *         <element name="id" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         <element name="accession" type="{http://www.w3.org/2001/XMLSchema}NCName"/>
- *         <element name="secondaryaccession" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="name" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         <element name="experimenttype" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="releasedate" type="{http://www.w3.org/2001/XMLSchema}date"/>
- *         <element name="submissiondate" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         <element name="lastupdatedate" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         <element name="samples" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         <element name="hybs" type="{http://www.w3.org/2001/XMLSchema}integer"/>
- *         <element name="user" type="{http://www.w3.org/2001/XMLSchema}integer" maxOccurs="unbounded"/>
- *         <element ref="{}sampleattribute" maxOccurs="unbounded" minOccurs="0"/>
- *         <element ref="{}experimentalfactor" maxOccurs="unbounded" minOccurs="0"/>
- *         <element ref="{}miamescore" maxOccurs="unbounded" minOccurs="0"/>
- *         <element ref="{}arraydesign" maxOccurs="unbounded" minOccurs="0"/>
- *         <element ref="{}bioassaydatagroup" maxOccurs="unbounded" minOccurs="0"/>
- *         <element ref="{}bibliography" maxOccurs="unbounded" minOccurs="0"/>
- *         <element ref="{}provider" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="experimentdesign" type="{http://www.w3.org/2001/XMLSchema}string" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="description" type="{http://www.w3.org/2001/XMLSchema}string"/>
- *         <element ref="{}protocol" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="seqdatauri" type="{http://www.w3.org/2001/XMLSchema}anyURI" maxOccurs="unbounded" minOccurs="0"/>
- *         <element name="anonymousreview" type="{http://www.w3.org/2001/XMLSchema}NCName" minOccurs="0"/>
- *       </sequence>
- *     </restriction>
- *   </complexContent>
- * </complexType>
- * </pre>
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
         "id",

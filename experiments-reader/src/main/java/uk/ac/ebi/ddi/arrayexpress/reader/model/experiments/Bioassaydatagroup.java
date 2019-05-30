@@ -10,27 +10,6 @@ import java.io.Serializable;
 import java.math.BigInteger;
 
 
-/**
- * <p>Java class for anonymous complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * <complexType>
- *   <complexContent>
- *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       <attribute name="arraydesignprovider" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="bioassaydatacubes" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       <attribute name="bioassays" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       <attribute name="dataformat" use="required" type="{http://www.w3.org/2001/XMLSchema}NCName" />
- *       <attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="isderived" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       <attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}NCName" />
- *     </restriction>
- *   </complexContent>
- * </complexType>
- * </pre>
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "bioassaydatagroup")

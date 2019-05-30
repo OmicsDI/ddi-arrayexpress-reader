@@ -10,33 +10,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-/**
- * <p>Java class for anonymous complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * <complexType>
- *   <complexContent>
- *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       <sequence>
- *         <element ref="{}id"/>
- *         <element ref="{}accession"/>
- *         <element ref="{}name"/>
- *         <element ref="{}user" minOccurs="0"/>
- *         <element ref="{}text"/>
- *         <element ref="{}type"/>
- *         <element ref="{}performer"/>
- *         <element ref="{}hardware"/>
- *         <element ref="{}software"/>
- *         <element ref="{}standardpublicprotocol"/>
- *         <element ref="{}parameter" maxOccurs="unbounded" minOccurs="0"/>
- *       </sequence>
- *     </restriction>
- *   </complexContent>
- * </complexType>
- * </pre>
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "", propOrder = {
         "id",

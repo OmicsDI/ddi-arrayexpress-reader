@@ -7,23 +7,6 @@ import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 
 
-/**
- * <p>Java class for anonymous complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * <complexType>
- *   <complexContent>
- *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       <attribute name="contact" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="email" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="role" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *     </restriction>
- *   </complexContent>
- * </complexType>
- * </pre>
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "provider")

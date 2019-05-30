@@ -10,24 +10,6 @@ import java.io.Serializable;
 import java.math.BigInteger;
 
 
-/**
- * <p>Java class for anonymous complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * <complexType>
- *   <complexContent>
- *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       <attribute name="accession" use="required" type="{http://www.w3.org/2001/XMLSchema}NCName" />
- *       <attribute name="count" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       <attribute name="id" use="required" type="{http://www.w3.org/2001/XMLSchema}integer" />
- *       <attribute name="name" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *     </restriction>
- *   </complexContent>
- * </complexType>
- * </pre>
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "arraydesign")

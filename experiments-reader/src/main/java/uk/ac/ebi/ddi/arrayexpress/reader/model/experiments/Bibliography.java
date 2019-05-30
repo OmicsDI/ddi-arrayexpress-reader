@@ -7,33 +7,6 @@ import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 
 
-/**
- * <p>Java class for anonymous complex type.
- *
- * <p>The following schema fragment specifies the expected content contained within this class.
- *
- * <pre>
- * <complexType>
- *   <complexContent>
- *     <restriction base="{http://www.w3.org/2001/XMLSchema}anyType">
- *       <attribute name="accession" use="required" type="{http://www.w3.org/2001/XMLSchema}anyURI" />
- *       <attribute name="authors" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="doi" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="edition" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="issue" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="pages" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="publication" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="publisher" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="status" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="title" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="uri" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="volume" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *       <attribute name="year" use="required" type="{http://www.w3.org/2001/XMLSchema}anySimpleType" />
- *     </restriction>
- *   </complexContent>
- * </complexType>
- * </pre>
- */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlType(name = "")
 @XmlRootElement(name = "bibliography")
