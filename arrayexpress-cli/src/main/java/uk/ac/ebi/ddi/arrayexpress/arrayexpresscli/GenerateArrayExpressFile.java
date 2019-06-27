@@ -3,23 +3,25 @@ package uk.ac.ebi.ddi.arrayexpress.arrayexpresscli;
 import org.apache.commons.cli.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import uk.ac.ebi.ddi.arrayexpress.arrayexpresscli.utils.ArrayExpressUtils;
 import uk.ac.ebi.ddi.arrayexpress.arrayexpresscli.utils.Constants;
-import uk.ac.ebi.ddi.arrayexpress.reader.ExperimentReader;
-import uk.ac.ebi.ddi.arrayexpress.reader.ProtocolReader;
-import uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.*;
-import uk.ac.ebi.ddi.arrayexpress.reader.model.protocols.Protocol;
-import uk.ac.ebi.ddi.arrayexpress.reader.model.protocols.Protocols;
+import uk.ac.ebi.ddi.arrayexpress.experimentsreader.ExperimentReader;
+import uk.ac.ebi.ddi.arrayexpress.experimentsreader.model.experiments.*;
+import uk.ac.ebi.ddi.arrayexpress.protocolsreader.ProtocolReader;
+import uk.ac.ebi.ddi.arrayexpress.protocolsreader.model.protocols.Protocol;
+import uk.ac.ebi.ddi.arrayexpress.protocolsreader.model.protocols.Protocols;
 import uk.ac.ebi.ddi.ddidomaindb.dataset.DSField;
 import uk.ac.ebi.ddi.xml.validator.parser.marshaller.OmicsDataMarshaller;
-import uk.ac.ebi.ddi.xml.validator.parser.model.*;
+import uk.ac.ebi.ddi.xml.validator.parser.model.Database;
+import uk.ac.ebi.ddi.xml.validator.parser.model.Entries;
+import uk.ac.ebi.ddi.xml.validator.parser.model.Entry;
 
 import java.io.File;
-
 import java.io.FileWriter;
 import java.math.BigInteger;
-import java.util.*;
+import java.util.HashSet;
+import java.util.Map;
+import java.util.TreeMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 
@@ -125,7 +127,7 @@ public class GenerateArrayExpressFile {
         Map<Integer, Protocol> sampleProtocol = new TreeMap<>();
         Map<Integer, Protocol> dataProtocol = new TreeMap<>();
 
-        for (uk.ac.ebi.ddi.arrayexpress.reader.model.experiments.Protocol protcl : ex.getProtocol()) {
+        for (uk.ac.ebi.ddi.arrayexpress.experimentsreader.model.experiments.Protocol protcl : ex.getProtocol()) {
             Protocol protocol = protocolMap.get(protcl.getAccession());
             if (protocol != null) {
                 if (protocol.getSoftware() != null && !protocol.getSoftware().isEmpty()) {
