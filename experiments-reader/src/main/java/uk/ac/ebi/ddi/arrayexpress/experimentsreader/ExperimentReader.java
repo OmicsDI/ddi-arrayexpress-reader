@@ -6,6 +6,7 @@ import uk.ac.ebi.ddi.arrayexpress.experimentsreader.xml.unmarshaller.ExperimentU
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.io.InputStream;
 
 
 /**
@@ -26,10 +27,16 @@ public class ExperimentReader {
 
     private Experiments experiments = null;
 
+    public ExperimentReader(InputStream inputStream) {
+        try {
+            // create unmarshaller
+            this.unmarshaller = ExperimentUnmarshallerFactory.getInstance().initializeUnmarshaller();
+            experiments = (Experiments) unmarshaller.unmarshal(inputStream);
+        } catch (JAXBException e) {
+            throw new IllegalArgumentException("Error unmarshalling InputStream: " + e.getMessage(), e);
+        }
+    }
 
-    /*public PrideModReader(URL url) {
-        this(FileUtils.getFileFromURL(url));
-    } */
     public ExperimentReader(File file) {
         if (file == null) {
             throw new IllegalArgumentException("Xml file to be indexed must not be null");

@@ -8,6 +8,7 @@ import uk.ac.ebi.ddi.arrayexpress.protocolsreader.xml.unmarshaller.ProtocolUnmar
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
 import java.io.File;
+import java.io.InputStream;
 
 
 /**
@@ -31,9 +32,16 @@ public class ProtocolReader {
     private Protocols protocols = null;
 
 
-    /*public PrideModReader(URL url) {
-        this(FileUtils.getFileFromURL(url));
-    } */
+    public ProtocolReader(InputStream inputStream) {
+        try {
+            // create unmarshaller
+            this.unmarshaller = ProtocolUnmarshallerFactory.getInstance().initializeUnmarshaller();
+            protocols = (Protocols) unmarshaller.unmarshal(inputStream);
+        } catch (JAXBException e) {
+            throw new IllegalArgumentException("Error unmarshalling InputStream: " + e.getMessage(), e);
+        }
+    }
+
     public ProtocolReader(File file) {
         if (file == null) {
             throw new IllegalArgumentException("Xml file to be indexed must not be null");

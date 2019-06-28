@@ -18,6 +18,7 @@ import uk.ac.ebi.ddi.xml.validator.parser.model.Entry;
 
 import java.io.File;
 import java.io.FileWriter;
+import java.io.Writer;
 import java.math.BigInteger;
 import java.util.HashSet;
 import java.util.Map;
@@ -262,7 +263,7 @@ public class GenerateArrayExpressFile {
      *
      * @throws Exception
      */
-    public static void generate(Experiments experiments, Protocols protocols, File outputFile) throws Exception {
+    public static void generate(Experiments experiments, Protocols protocols, Writer writer) throws Exception {
         OmicsDataMarshaller mm = new OmicsDataMarshaller();
 
         Database database = new Database();
@@ -273,7 +274,7 @@ public class GenerateArrayExpressFile {
 
         try {
             Map<String, Protocol> protocolMap = createProtocolMap(protocols);
-            if (experiments.getExperiment() != null && outputFile != null) {
+            if (experiments.getExperiment() != null && writer != null) {
                 experiments.getExperiment().forEach(ex -> {
                     if (ex.getUser() != null && ex.getUser().contains(BigInteger.valueOf(1))) {
                         entries.addEntry(generate(ex, protocolMap));
@@ -285,11 +286,15 @@ public class GenerateArrayExpressFile {
                 database.setEntryCount(entries.getEntry().size());
 
                 database.setEntries(entries);
-                mm.marshall(database, new FileWriter(outputFile));
+                mm.marshall(database, writer);
             }
         } catch (Exception e) {
             LOGGER.error("Exception occurred, ", e);
         }
+    }
+
+    public static void generate(Experiments experiments, Protocols protocols, File outFile) throws Exception {
+        generate(experiments, protocols, new FileWriter(outFile));
     }
 
     static Map<String, Protocol> createProtocolMap(Protocols protocols) {
