@@ -5,11 +5,11 @@
     <parent>
         <groupId>uk.ac.ebi.ddi.arrayexpress</groupId>
         <artifactId>arrayexpress-reader</artifactId>
-        <version>1.2-SNAPSHOT</version>
+        <version>1.2</version>
     </parent>
 
     <artifactId>protocols-reader</artifactId>
-    <version>1.4-SNAPSHOT</version>
+    <version>1.4</version>
 
 
     <name>protocols-reader</name>

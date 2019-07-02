@@ -5,11 +5,11 @@
     <parent>
         <groupId>uk.ac.ebi.ddi.arrayexpress</groupId>
         <artifactId>arrayexpress-reader</artifactId>
-        <version>1.2-SNAPSHOT</version>
+        <version>1.2</version>
     </parent>
 
     <artifactId>arrayexpress-cli</artifactId>
-    <version>1.2-SNAPSHOT</version>
+    <version>1.2</version>
 
 
     <name>arrayexpress-cli</name>
@@ -80,13 +80,13 @@
         <dependency>
             <groupId>uk.ac.ebi.ddi.arrayexpress</groupId>
             <artifactId>experiments-reader</artifactId>
-            <version>1.4-SNAPSHOT</version>
+            <version>1.4</version>
         </dependency>
 
         <dependency>
             <groupId>uk.ac.ebi.ddi.arrayexpress</groupId>
             <artifactId>protocols-reader</artifactId>
-            <version>1.4-SNAPSHOT</version>
+            <version>1.4</version>
         </dependency>
 
         <dependency>
