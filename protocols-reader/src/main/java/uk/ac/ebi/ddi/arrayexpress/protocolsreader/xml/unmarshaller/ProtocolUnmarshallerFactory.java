@@ -35,10 +35,8 @@ public class ProtocolUnmarshallerFactory {
             }
 
             //create unmarshaller
-            Unmarshaller pum = jc.createUnmarshaller();
-            LOGGER.info("Unmarshaller Initialized");
 
-            return pum;
+            return jc.createUnmarshaller();
 
         } catch (JAXBException e) {
             LOGGER.error("UnmarshallerFactory.initializeUnmarshaller", e);

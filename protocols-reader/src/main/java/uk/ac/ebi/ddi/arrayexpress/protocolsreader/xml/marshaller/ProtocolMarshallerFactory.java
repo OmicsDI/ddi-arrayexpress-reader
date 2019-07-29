@@ -39,10 +39,8 @@ public class ProtocolMarshallerFactory {
             }
 
             //create unmarshaller
-            Marshaller pm = jc.createMarshaller();
-            LOGGER.info("Marshaller Initialized");
 
-            return pm;
+            return jc.createMarshaller();
 
         } catch (JAXBException e) {
             LOGGER.error("UnimodMarshaller.initializeMarshaller", e);

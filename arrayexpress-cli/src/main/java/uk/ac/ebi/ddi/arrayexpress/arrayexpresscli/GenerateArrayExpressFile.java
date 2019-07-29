@@ -299,7 +299,7 @@ public class GenerateArrayExpressFile {
 
     static Map<String, Protocol> createProtocolMap(Protocols protocols) {
         if (protocols != null) {
-            return protocols.getProtocol().parallelStream()
+            return protocols.getProtocol().stream()
                     .collect(Collectors.toMap(Protocol::getAccession, Function.identity()));
         }
         return null;

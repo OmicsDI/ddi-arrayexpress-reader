@@ -86,7 +86,7 @@ public class Protocol implements Serializable, IArrayExpress {
      *              {@link String }
      */
     public void setAccession(String value) {
-        this.accession = value;
+        this.accession = value.trim();
     }
 
     /**
