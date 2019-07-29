@@ -28,7 +28,7 @@ public class Protocol
      * {@link String }
      */
     public String getAccession() {
-        return accession;
+        return accession.trim();
     }
 
     /**
@@ -38,7 +38,7 @@ public class Protocol
      *              {@link String }
      */
     public void setAccession(String value) {
-        this.accession = value;
+        this.accession = value.trim();
     }
 
     /**
