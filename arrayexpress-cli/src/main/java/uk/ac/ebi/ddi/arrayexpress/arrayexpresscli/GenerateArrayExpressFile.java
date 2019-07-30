@@ -237,15 +237,15 @@ public class GenerateArrayExpressFile {
                     case "ERP":
                     case "SRP":
                         repositories.add("ENA");
-                        LOGGER.info("{} secondary accession prefix: {} added ENA repository", ex.getAccession(), str);
+                        LOGGER.debug("{} secondary accession prefix: {} added ENA repository", ex.getAccession(), str);
                         break;
                     case "GSE":
                     case "GDS":
                         repositories.add("GEO");
-                        LOGGER.info("{} secondary accession prefix: {} added GEO repository", ex.getAccession(), str);
+                        LOGGER.debug("{} secondary accession prefix: {} added GEO repository", ex.getAccession(), str);
                         break;
                     default:
-                        LOGGER.info("{} unknown secondary accession prefix: {}", ex.getAccession(), str);
+                        LOGGER.debug("{} unknown secondary accession prefix: {}", ex.getAccession(), str);
                         break; //noop
                 }
                 entry.addAdditionalField(DSField.Additional.SECONDARY_ACCESSION.getName(), accession);
