@@ -14,9 +14,9 @@ public class Constants {
 
     public static final String[] CELL_TYPE      = new String[]{"cell type", "organ/cell type"};
 
-    public static final String[] DISEASE        = new String[]{"DiseaseState"};
+    public static final String[] DISEASE        = new String[]{"DiseaseState", "disease"};
 
-    public static final String[] TISSUE         = new String[]{"OrganismPart"};
+    public static final String[] TISSUE         = new String[]{"OrganismPart","organism part"};
 
     public enum ArrayExpressType {
         DNA_ASSAY(new String[]{"DNA assay", "DNA-seq", "Amplicon sequencing", "ChIP-seq",
